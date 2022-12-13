@@ -12,5 +12,6 @@ Feature: Purchase an item
         And the user inputs "Giraldo" in the last name field
         And the user inputs "050012" in the zip field
         And the user clicks in the continue button
-        And the user clicks in the finish button
+        Then the user sees the item in the checkout matches the one selected
+        When the user clicks in the finish button
         Then validate the text order is completed succesfully

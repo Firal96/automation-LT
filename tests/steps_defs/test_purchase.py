@@ -57,6 +57,10 @@ def go_to_checkout_complete(browser):
 def validate_item(browser, item_name):
     assert CartPage(browser).get_item_name() == item_name
 
+@then('the user sees the item in the checkout matches the one selected')
+def validate_item_checkout(browser, item_name):
+    assert CheckoutPage(browser).get_item_name() == item_name
+
 @then('validate the text order is completed succesfully')
 def validate_title(browser):
     assert CheckoutCompletePage(browser).get_title_label() == "CHECKOUT: COMPLETE!"

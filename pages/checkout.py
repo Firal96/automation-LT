@@ -11,6 +11,7 @@ class CheckoutPage(Base):
     FIRST_NAME_INPUT = (By.ID, 'first-name')
     LAST_NAME_INPUT = (By.ID, 'last-name')
     ZIP_INPUT = (By.ID, 'postal-code')
+    ITEM_NAME_LABEL = (By.CSS_SELECTOR, '.inventory_item_name')
     CONTINUE_BUTTON = (By.ID, 'continue')
     FINISH_BUTTON = (By.ID, 'finish')
 
@@ -36,6 +37,10 @@ class CheckoutPage(Base):
     def click_continue_button(self):
         continue_button = self.browser.find_element(*self.CONTINUE_BUTTON)
         continue_button.click()
+
+    def get_item_name(self):
+        items_name = self.browser.find_element(*self.ITEM_NAME_LABEL).text
+        return items_name
 
     def click_finish_button(self):
         finish_button = self.browser.find_element(*self.FINISH_BUTTON)
